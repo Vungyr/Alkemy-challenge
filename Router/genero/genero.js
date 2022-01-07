@@ -15,17 +15,17 @@ router.post('/', async (req, res) =>{
 });
 
 //Modificacion de Genero
-router.put('/:filInd', async(req, res)=>{
+router.put('/:id', async(req, res)=>{
     await Genero.update(req.body,{
-        where: {  id: req.params.filInd }
+        where: {  id: req.params.id }
     });
     res.json( { success: 'Se ha modificado exitosamente'})
 });
 
 //Eliminacion Fisica de Genero
-router.delete('/:finlId', async(req, res) =>{
+router.delete('/:id', async(req, res) =>{
     await Genero.destroy({
-        where: { id: req.params.finlId}
+        where: { id: req.params.id}
     });
     res.json ({ success: 'Se ha eliminado correctamente.'})
 });
