@@ -8,8 +8,6 @@ const { email } = require('../sendgrid');
 const { check, validationResult } = require('express-validator');
 
 
-
-
 router.post('/registro', [
     check('nombre_usuario', 'El nombre de usuario es obligatorio'). not().isEmpty(),
     check('contraseña', 'La constraseña debe ser obligatorio').not().isEmpty(),
@@ -34,10 +32,10 @@ router.post('/login', async (req, res) =>{
         if (iguales){
             res.json ({ success: createToken(user)});
         }else{
-            res.json( {error: 'Error en usuario y/o contraseña 1'});
+            res.json( {error: 'Error en usuario y/o contraseña'});
         }
     }else{
-        res.json( {error: 'Error en usuario y/o contraseña 2'});
+        res.json( {error: 'Error en usuario y/o contraseña'});
     }
 
 });
